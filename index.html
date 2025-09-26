@@ -32,86 +32,58 @@
   <input type="radio" name="slider" id="t5">
   <input type="radio" name="slider" id="t6">
 
-  <div class="slider">
+ <section class="working container">
 
-    <div class="working_container active" id="s1">
+  <div class="slider">
+    <div class="working_container active">
       <img src="t1-removebg-preview.png" class="working_img">
       <h2 class="working_name">Thiago Miranda</h2>
       <p class="working_tag">Frontend Developer</p>
       <p class="working_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
     </div>
 
-    <div class="working_container " id="s2">
+    <div class="working_container">
       <img src="t1-removebg-preview.png" class="working_img">
       <h2 class="working_name">Matias Fretes</h2>
       <p class="working_tag">Frontend Developer</p>
       <p class="working_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
     </div>
 
-    <div class="working_container " id="s3">
+    <div class="working_container">
       <img src="t1-removebg-preview.png" class="working_img">
       <h2 class="working_name">Romina Almiron</h2>
       <p class="working_tag">Frontend Developer</p>
       <p class="working_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
     </div>
 
-    <div class="working_container " id="s4">
+    <div class="working_container">
       <img src="t1-removebg-preview.png" class="working_img">
       <h2 class="working_name">Ivan Orquiola</h2>
       <p class="working_tag">Frontend Developer</p>
       <p class="working_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
     </div>
 
-    <div class="working_container " id="s5">
+    <div class="working_container">
       <img src="t1-removebg-preview.png" class="working_img">
       <h2 class="working_name">Tomas Morales</h2>
       <p class="working_tag">Frontend Developer</p>
       <p class="working_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
     </div>
 
-    <div class="working_container" id="s6">
+    <div class="working_container">
       <img src="t1-removebg-preview.png" class="working_img">
-      <h2 class="working_name">Tomas Zambiasio</h2>
+      <h2 class="working_name">Matias Zambiasio</h2>
       <p class="working_tag">Frontend Developer</p>
       <p class="working_paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
     </div>
   </div>
 
- 
+  <!-- Flechas -->
   <div class="arrows">
-    <div class="arrows">
-  <!-- Si estoy en t1 -->
-  <div class="arrowset">
-    <label for="t6" class="prev">&#10094;</label>
-    <label for="t2" class="next">&#10095;</label>
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
   </div>
-  <!-- Si estoy en t2 -->
-  <div class="arrowset">
-    <label for="t1" class="prev">&#10094;</label>
-    <label for="t3" class="next">&#10095;</label>
-  </div>
-  <!-- Si estoy en t3 -->
-  <div class="arrowset">
-    <label for="t2" class="prev">&#10094;</label>
-    <label for="t4" class="next">&#10095;</label>
-  </div>
-  <!-- Si estoy en t4 -->
-  <div class="arrowset">
-    <label for="t3" class="prev">&#10094;</label>
-    <label for="t5" class="next">&#10095;</label>
-  </div>
-  <!-- Si estoy en t5 -->
-  <div class="arrowset">
-    <label for="t4" class="prev">&#10094;</label>
-    <label for="t6" class="next">&#10095;</label>
-  </div>
-  <!-- Si estoy en t6 -->
-  <div class="arrowset">
-    <label for="t5" class="prev">&#10094;</label>
-    <label for="t1" class="next">&#10095;</label>
-  </div>
-</div>
-  </div>
+</section>
 </section>
                 <section class="about container">
     <div class="about_course">
@@ -197,6 +169,27 @@
             </p>
         </div>
     </footer>
-</body>
+    <script>
+  const workers = document.querySelectorAll('.working_container');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
 
+  let index = 0;
+
+  function showWorker(i) {
+    workers.forEach(w => w.classList.remove('active'));
+    workers[i].classList.add('active');
+  }
+
+  prev.addEventListener('click', () => {
+    index = (index - 1 + workers.length) % workers.length;
+    showWorker(index);
+  });
+
+  next.addEventListener('click', () => {
+    index = (index + 1) % workers.length;
+    showWorker(index);
+  });
+</script>
+</body>
 </html>
