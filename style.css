@@ -143,7 +143,17 @@ input[type="radio"] {
   width: 100%;
   margin-top: 20px;
 }
+.arrowset { display: none; }
 
+#t1:checked ~ .arrows .arrowset:nth-child(1),
+#t2:checked ~ .arrows .arrowset:nth-child(2),
+#t3:checked ~ .arrows .arrowset:nth-child(3),
+#t4:checked ~ .arrows .arrowset:nth-child(4),
+#t5:checked ~ .arrows .arrowset:nth-child(5),
+#t6:checked ~ .arrows .arrowset:nth-child(6) {
+  display: flex;
+  justify-content: space-between;
+}
 .arrows label {
   cursor: pointer;
   font-size: 2rem;
@@ -556,3 +566,4 @@ body{
         justify-self: center;
     }
 }
+
